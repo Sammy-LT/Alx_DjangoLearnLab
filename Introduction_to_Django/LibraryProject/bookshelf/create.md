@@ -1,8 +1,12 @@
-# Create Operation
+# Delete Operation
 
 ```python
 from bookshelf.models import Book
 
-# Create a new book
-book = Book.objects.create(title="1984", author="George Orwell", publication_year=1949)
-print(book)  # Output: 1984 by George Orwell (1949)
+# Get the updated book and delete it
+book = Book.objects.get(title="Nineteen Eighty-Four")
+book.delete()
+
+# Confirm deletion by checking count
+books = Book.objects.all()
+print(books.count())  # Output: 0
